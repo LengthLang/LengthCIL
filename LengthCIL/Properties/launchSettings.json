@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "LengthCIL.CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "-o test.exe",
+      "workingDirectory": "C:\\Users\\julia\\source\\repos\\LengthCIL\\"
+    }
+  }
+}
