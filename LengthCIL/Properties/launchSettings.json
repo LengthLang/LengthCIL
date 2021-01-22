@@ -2,7 +2,7 @@
   "profiles": {
     "LengthCIL.CLI": {
       "commandName": "Project",
-      "commandLineArgs": "hello.len -o test.exe",
+      "commandLineArgs": "bottles.len -o bottles.exe",
       "workingDirectory": "C:\\Users\\julia\\source\\repos\\LengthCIL\\"
     }
   }

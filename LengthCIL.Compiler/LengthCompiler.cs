@@ -66,10 +66,13 @@ namespace LengthCIL.Compiler {
             var instructions = new List<Instruction>();
             foreach (var _ in Program) {
                 Console.WriteLine(".");
-                instructions.Add(il.Create(OpCodes.Nop));
+                var nop = il.Create(OpCodes.Nop);
+                instructions.Add(nop);
+                il.Append(nop);
             }
-            instructions.Add(il.Create(OpCodes.Nop));
-            Console.WriteLine(instructions.Count);
+            var insNop = il.Create(OpCodes.Nop);
+            instructions.Add(insNop);
+            il.Append(insNop); Console.WriteLine(instructions.Count);
             for (int i = 0; i < Program.Count; i++) {
                 var line = Program[i];
                 switch (line) {
@@ -124,7 +127,8 @@ namespace LengthCIL.Compiler {
                         break;
                     // push
                     case 25:
-                        il.InsertAfter(instructions[i], il.Create(OpCodes.Ldc_I4, Program[i + 1]));
+                        il.InsertAfter(instructions[i], il.Create(OpCodes.Ldc_I4, 
+                            Program[i + 1]));
                         i++;
                         break;
                 }
