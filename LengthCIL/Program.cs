@@ -8,8 +8,10 @@ namespace LengthCIL.CLI {
     class Program {
         static void Main(string[] args) {
             Parser.Default.ParseArguments<Options>(args).WithParsed(o => {
-                new LengthCompiler().Compile(o.OutputFile);
-                Console.WriteLine(o.OutputFile);
+                var text = File.ReadAllText(o.FileName);
+                var compiler = new LengthCompiler();
+                compiler.Parse(text);
+                compiler.Compile(o.OutputFile);
             });
         }
     }
